@@ -15,7 +15,7 @@ Set-MpPreference -DisableBlockAtFirstSight $false
 
 # 2. Tighten Windows Firewall
 New-NetFirewallRule -DisplayName "Block_Kali_Scanning" -Direction Inbound -RemoteAddress 192.168.56.20 -Action Block -Severity Critical
-New-NetFirewallRule -DisplayName "Allow_ADCS_Web" -Direction Inbound -RemoteAddress 192.168.56.20 -LocalPort 80,443,88,389 -Protocol TCP -Action Allow
+New-NetFirewallRule -DisplayName "Allow_ADCS_Web" -Direction Inbound -RemoteAddress 192.168.56.20 -LocalPort 80,443,88,389,445 -Protocol TCP -Action Allow
 
 # 3. Internal Exposure Leaks
 $TargetDir = "C:\Users\Public\Documents\Shares"
